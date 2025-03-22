@@ -1,0 +1,4 @@
+package joke
+
+class Hero {
+}

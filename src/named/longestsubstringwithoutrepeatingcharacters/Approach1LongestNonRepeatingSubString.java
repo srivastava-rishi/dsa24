@@ -9,9 +9,6 @@ public class Approach1LongestNonRepeatingSubString {
     static int longestSubstringCount = Integer.MIN_VALUE;
 
     public static void ifContainDuplicate(String subString) {
-
-
-
         ArrayList<Character> list = new ArrayList<>();
         boolean containDuplicate = false;
         for (int i = 0; i < subString.length(); i++) {
@@ -29,7 +26,7 @@ public class Approach1LongestNonRepeatingSubString {
 
     public static void main(String args[]) {
 
-        if(input.isBlank() || input.isEmpty()){
+        if(input.isEmpty()){
             System.out.println(0);
         }
 
