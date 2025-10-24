@@ -59,7 +59,7 @@ fun dfs(
     currentPath[startEdge] = 1
     for (i in graph[startEdge]?.indices ?: emptyList()) {
         val nextNode = graph[startEdge]!![i]
-        if (visitedArray[nextNode] != 1) {
+        if (visitedArray[nextNode] != 1) { // this line is a bit tricky think for  Q. Find Eventual Safe States
             dfs(nextNode,graph,currentPath,visitedArray)
         }
         if (visitedArray[nextNode] == 1 && currentPath[nextNode] == 1){
