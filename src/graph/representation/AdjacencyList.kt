@@ -29,11 +29,6 @@ fun printGraphUsingList(
         graph[vertex2]?.add(vertex1)
     }
       */
-
-    for (i in edges.indices) {
-
-    }
-
     for (i in edges.indices) {
         val vertex1 = edges[i][0]
         val vertex2 = edges[i][1]
