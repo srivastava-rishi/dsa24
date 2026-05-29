@@ -19,8 +19,27 @@ fun main() {
     }
 //    println(graph)
     dfs(v, 0, visitedArray, graph)
+   // dfsRevisit(graph,0,visitedArray)
 }
 
+
+// 29 May 26 - Revisited
+fun dfsRevisit(
+    graph: MutableMap<Int, MutableList<Int>>,
+    source: Int,
+    visitedArray: IntArray
+) {
+    println(source)
+    visitedArray[source] = 1
+    // see to it's children
+    for (i in graph[source]?.indices ?: emptyList()) {
+        graph[source]?.get(i)?.let {
+            if (visitedArray[it] != 1) {
+                dfsRevisit(graph,it,visitedArray)
+            }
+        }
+    }
+}
 fun dfs(
     vertices: Int,
     sourceNode: Int,

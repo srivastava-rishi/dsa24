@@ -1,6 +1,6 @@
 package graph.transversal
 
-import javax.swing.AbstractCellEditor
+import java.util.LinkedList
 
 
 fun main() {
@@ -20,6 +20,29 @@ fun main() {
     //  println(adjacencyList)
     breadthForSearch(adjacencyList, vertices, 0)
 }
+// 29 May 26 - Revisited
+fun bfsRevisit(
+    adjacencyList: MutableMap<Int, MutableList<Int>>,
+    vertices: Int,
+    source: Int
+) {
+    val visitedArray = IntArray(vertices)
+    val queue = LinkedList<Int>()
+    queue.add(source)
+    visitedArray[0] = 1
+    while (queue.isNotEmpty()) {
+        val removalVertex = queue.poll()
+        println(removalVertex)
+        for (i in adjacencyList[removalVertex]?.indices ?: emptyList()) {
+            adjacencyList[removalVertex]?.get(i)?.let {
+                if(visitedArray[it] != 1){
+                    queue.add(it)
+                    visitedArray[it] = 1
+                }
+            }
+        }
+    }
+}
 
 fun breadthForSearch(
     adjacencyList: MutableMap<Int, MutableList<Int>>,
@@ -32,6 +55,8 @@ fun breadthForSearch(
     Can behave like a queue or a stack.
    -----------------------------------------------
     Ways to make a queue : -
+    Revisted this one -
+    0. (Most common way). val queueExample = LinkedList<Int>() Link - https://blog.logrocket.com/kotlin-queue-guide-for-android/
     1. val queue = ArrayDeque<Int>() - this way it's queue and deque both
     2. val jq: Queue<Int> = JArrayDeque() - Java style option
      */
